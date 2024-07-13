@@ -1,10 +1,10 @@
 # ONIE Adventures
 
-This repository contains some resources about my adventures with ONIE. I had to build my own ONIE for Celestica DX010, because Celestica does not provide finished images and there are no real walkthrough guides.
+This repository contains some resources about my adventures with ONIE. I had to build my own ONIE for Celestica DX010, because Celestica does not provide ONIE images. I decided to share my notes as there don't seem to exist any complete public guides on how to build ONIE.
 
 Below you can find a guide on how to build ONIE on your own for Celestica DX010.
 
-Because I wasn't able to find any public ONIE build pipeline / CI (if one exists, please let me know where?), I have includeed the binary results of the ONIE builds for a handful of platforms I use / own (see list below)
+Because I wasn't able to find any public ONIE build pipeline / CI (if one exists, please let me know where?), I have included the binaries of the ONIE builds for a handful of platforms I use / own (see list below)
 
 
 ## Successful builds
