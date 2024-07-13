@@ -26,6 +26,7 @@ Starting at 2021.11, builds will fail with
 make: *** No rule to make target 'conf/crosstool/gcc-4.9.2/uClibc-ng-1.0.38/crosstool.x86_64.config', needed by '/home/robin/onie-build/build/x-tools/x86_64-g4.9.2-lnx3.2.69-uClibc-ng-1.0.38/build/.config'.  Stop.
 ```
 
+PSA 2: With podman, `--run-image` doesn't seem to work (see #1). If you only have a single image, simply use `--run`
 
 Download DUE (do not use the one from debian repos, it's v3.0 as of time of writing and too old)
 Create buildenv with DUE
@@ -54,7 +55,7 @@ it will take about 10 minutes... Total size of downloads is about 3.9GB and the 
 
 Time to get started...
 ```
-https://github.com/opencomputeproject/onie.git onie-build
+git clone https://github.com/opencomputeproject/onie.git onie-build
 cd onie-build
 git checkout 2021.08
 cd ../DUE
@@ -72,9 +73,10 @@ cd onie-build/build-config/
 ONIE_USE_SYSTEM_DOWNLOAD_CACHE=TRUE make -j128 MACHINEROOT=../machine/celestica MACHINE=cel_seastone all demo
 ```
 Adjust the `-j128` to your amount of cores.
-This will take a while. About 15 minutes on my 128-Core 2x EPYC 7773X machine.
+This will take a while. About 15 minutes on my 128-Core 2x EPYC 7773X machine with the build directory located on RAID10 (2x ZFS mirror vdev) of 4x Micron 7300 PRO 3.2TB.
+Build time of 10 minutes on Ryzen 5950X and build directory on RAMDISK was reported.
 
-You will find the resulting file in `<your top-level onie directory>/onie-build/build/images/`:
+You will find the resulting files in `<your top-level onie directory>/onie-build/build/images/`:
 ```
 cel_seastone-r0.initrd
 cel_seastone-r0.vmlinuz
